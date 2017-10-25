@@ -62,6 +62,11 @@ Parameters:
         Type: String
         Default: 10.10.4.0/24
 
+    InternetGateway:
+        Description: Internet Gateway ID
+        Type: String
+        Default: igw-8293a7e5
+
 Mappings: 
 
     # Amazon Linux AMI 2016.09.1, released on 2016-12-22
@@ -295,19 +300,6 @@ Resources:
     ###########################################
 
           
-    InternetGateway:
-        Type: AWS::EC2::InternetGateway
-        Properties:
-            Tags:
-                - Key: Name
-                  Value: !Sub $!Sub ${ApplicationName}-${EnvironmentName}
-            
-    InternetGatewayAttachment:
-        Type: AWS::EC2::VPCGatewayAttachment
-        Properties:
-            InternetGatewayId: !Ref InternetGateway
-            VpcId: !Ref VPC
-
     PublicSubnet1: 
         Type: AWS::EC2::Subnet
         Properties:
@@ -354,13 +346,12 @@ Resources:
 
     NatGateway1EIP:
         Type: AWS::EC2::EIP
-        DependsOn: InternetGatewayAttachment
+
         Properties: 
             Domain: vpc
 
     NatGateway2EIP:
         Type: AWS::EC2::EIP
-        DependsOn: InternetGatewayAttachment
         Properties:
             Domain: vpc
 
