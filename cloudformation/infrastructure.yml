@@ -239,10 +239,10 @@ Resources:
             DeploymentConfigName: !Ref DeploymentStrategy
             ServiceRoleArn: 
                 Fn::ImportValue:
-                    !Sub CodeDeployServiceRoleArn-${ApplicationName}
+                    !Sub CodeDeployServiceRole
             ApplicationName: 
                 Fn::ImportValue:
-                    !Sub CodeDeployApplication-${ApplicationName} 
+                    !Ref ${ApplicationName} 
             AutoScalingGroups:
                 - !Ref AutoScalingGroup
     
