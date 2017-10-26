@@ -265,5 +265,5 @@ Outputs:
         Description: The CodeDeploy service role used across all environments
         Value: !Ref CodeDeployServiceRole
         Export:
-            Name: CodeDeployServiceRole
+            Name: CodeDeployServiceRole-${ApplicationName}
 
