@@ -215,7 +215,7 @@ Resources:
     CodeDeployDeploymentGroup:
         Type: AWS::CodeDeploy::DeploymentGroup
         Properties:
-            DeploymentGroupName: !Ref EnvironmentName
+            DeploymentGroupName: !Sub ${EnvironmentName}-${ApplicationName}
             DeploymentConfigName: !Ref DeploymentStrategy
             ServiceRoleArn: 
                 Fn::ImportValue:
