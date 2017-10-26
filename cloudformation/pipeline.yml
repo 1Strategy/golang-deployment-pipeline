@@ -170,7 +170,7 @@ Resources:
                                 Provider: CodeDeploy
                             Configuration: 
                                 ApplicationName: !Ref ApplicationName
-                                DeploymentGroupName: staging
+                                DeploymentGroupName: !Sub staging-${ApplicationName}
                 - 
                     Name: Approvals
                     Actions:
@@ -220,7 +220,7 @@ Resources:
                                 Provider: CodeDeploy
                             Configuration: 
                                 ApplicationName: !Ref ApplicationName
-                                DeploymentGroupName: production
+                                DeploymentGroupName: !Sub production-${ApplicationName}
                         
 
     CodeBuild:
