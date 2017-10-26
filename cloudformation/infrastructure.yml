@@ -219,7 +219,7 @@ Resources:
             DeploymentConfigName: !Ref DeploymentStrategy
             ServiceRoleArn: 
                 Fn::ImportValue:
-                    !Sub CodeDeployServiceRole
+                    !Sub CodeDeployServiceRole-${ApplicationName}
             ApplicationName: 
                 Fn::ImportValue:
                     !Sub CodeDeployApplication-${ApplicationName}
